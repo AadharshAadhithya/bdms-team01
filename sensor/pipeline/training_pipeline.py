@@ -105,6 +105,7 @@ class TrainPipeline:
             TrainPipeline.is_pipeline_running=True
 
             data_ingestion_artifact:DataIngestionArtifact = self.start_data_ingestion()
+            print("Data ingestion done")
             data_validation_artifact=self.start_data_validaton(data_ingestion_artifact=data_ingestion_artifact)
             data_transformation_artifact = self.start_data_transformation(data_validation_artifact=data_validation_artifact)
             model_trainer_artifact = self.start_model_trainer(data_transformation_artifact)

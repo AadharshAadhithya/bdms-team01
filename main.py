@@ -25,6 +25,8 @@ def set_env_variable(env_file_path):
         env_config = read_yaml_file(env_file_path)
         os.environ['MONGO_DB_URL']=env_config['MONGO_DB_URL']
 
+logging.info(os.environ['MONGO_DB_URL'])
+
 
 app = FastAPI()
 origins = ["*"]
@@ -41,6 +43,7 @@ app.add_middleware(
 @app.get("/", tags=["authentication"])
 async def index():
     return RedirectResponse(url="/docs")
+    
 @app.get("/train")
 async def train_route():
     try:
