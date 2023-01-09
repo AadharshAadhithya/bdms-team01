@@ -53,7 +53,6 @@ async def train_route():
         return Response("Training successful !!")
     except Exception as e:
         return Response(f"Error Occurred! {e}")
-
 @app.get("/predict")
 async def predict_route():
     try:
